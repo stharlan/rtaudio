@@ -100,9 +100,12 @@ STDMETHODIMP RtaAudioHandler::Invoke(IRtwqAsyncResult* pAsyncResult)
 		goto err;
 	}
 
-	if (this->FrameCount < this->lpCaptureDeviceInfo->BufferSizeFrames) {
-		this->LoopLimit++;
-	}
+	//if (this->FrameCount < this->lpCaptureDeviceInfo->BufferSizeFrames
+		//&& this->LoopLimit < 11) {
+		// once it gets to 10,
+		// increasing it probably won't do any good
+		//this->LoopLimit++;
+	//}
 
 	// copy data to frame buffer
 	memcpy(this->lpCaptureDeviceInfo->FrameBuffer, this->pCapBuffer, 
